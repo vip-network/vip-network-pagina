@@ -17,7 +17,9 @@ const app = express();
 require('./lib/passport')
 
 //settings
-app.set('port', process.env.PORT || 8080);
+// app.set('port', process.env.PORT || 8080);
+
+const port = process.env.PORT || 3000;
 app.set('views', path.join(__dirname, 'views'))
 app.engine('.hbs', exphbs({
     defaultLayout: 'main', 
@@ -84,6 +86,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //starting the server
-app.listen(app.get('port'), () => {
-    console.log('servidor en el puerto', app.get('port'));
+app.listen(port, () => {
+    console.log(`servidor en el puerto ${ port}`);
 })
